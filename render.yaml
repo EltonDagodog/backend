@@ -6,13 +6,15 @@ services:
       pip install -r requirements.txt
       python manage.py collectstatic --noinput
     startCommand: >
+      python manage.py makemigrations &&
       python manage.py migrate &&
       python manage.py createsuperuser --noinput || true &&
       gunicorn backend.wsgi
     envVars:
       - key: DJANGO_SUPERUSER_USERNAME
-        value: admin
+        value: elton pogi
       - key: DJANGO_SUPERUSER_EMAIL
-        value: admin@example.com
+        value: elton@gmail.com
       - key: DJANGO_SUPERUSER_PASSWORD
-        value: your_secure_password
+        value: Elton@123
+      
